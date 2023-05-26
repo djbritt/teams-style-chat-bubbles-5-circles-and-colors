@@ -23,11 +23,11 @@
   @keyframes squish {
     0% {
       transform: scaleY(1);
-      background-color: red;
+      background-color: blue;
     }
     50% {
-      transform: scaleY(0.25);
-      background-color: blue;
+      transform: scaleY(0.5);
+      background-color: purple;
     }
     100% {
       transform: scaleY(1);
@@ -46,7 +46,7 @@
 </div>
 <script>
   // Get all the circles
-  let circles = document.querySelectorAll(".circle");
+  let circles = document.getElementsByClassName("circle");
 
   // Define a function to randomly choose a circle and add the squish class
   function chooseCircle() {
@@ -55,6 +55,7 @@
 
     // Get the circle at that index
     let circle = circles[index];
+    console.log('chose cirle', circle)
 
     // Add the squish class to that circle
     circle.classList.add("squish");
@@ -62,11 +63,12 @@
     // Remove the squish class after the animation is done
     setTimeout(function() {
       circle.classList.remove("squish");
-    }, 500);
+    }, 400); // Decrease the timeout to 400 milliseconds
   }
 
   // Call the chooseCircle function every 2 seconds
   setInterval(chooseCircle, 500);
 </script>
+
 </body>
 </html>
